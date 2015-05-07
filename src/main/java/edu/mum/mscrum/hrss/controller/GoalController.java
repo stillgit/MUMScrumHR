@@ -1,4 +1,4 @@
-package com.mumscrum.controller;
+package edu.mum.mscrum.hrss.controller;
 
 import javax.validation.Valid;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.mumscrum.model.Goal;
+import edu.mum.mscrum.hrss.model.Goal;
 
 @Controller
 @SessionAttributes("goal")

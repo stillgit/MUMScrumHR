@@ -1,4 +1,4 @@
-package com.mumscrum.controller;
+package edu.mum.mscrum.hrss.controller;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mumscrum.model.Activity;
-import com.mumscrum.model.Exercise;
-import com.mumscrum.service.ExerciseService;
+import edu.mum.mscrum.hrss.model.Activity;
+import edu.mum.mscrum.hrss.model.Exercise;
+import edu.mum.mscrum.hrss.service.ExerciseService;
 
 
 @Controller

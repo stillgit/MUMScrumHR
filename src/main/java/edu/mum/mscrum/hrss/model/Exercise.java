@@ -1,4 +1,4 @@
-package com.mumscrum.model;
+package edu.mum.mscrum.hrss.model;
 
 import javax.validation.constraints.NotNull;
 

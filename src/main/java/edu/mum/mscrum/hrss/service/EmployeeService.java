@@ -1,4 +1,4 @@
-package com.mumscrum.service;
+package edu.mum.mscrum.hrss.service;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mumscrum.model.Employee;
-import com.mumscrum.model.Role;
-import com.mumscrum.repository.IEmployeeDAO;
+import edu.mum.mscrum.hrss.model.Employee;
+import edu.mum.mscrum.hrss.model.Role;
+import edu.mum.mscrum.hrss.repository.IEmployeeDAO;
 
 @Service
 public class EmployeeService implements IEmployeeService {

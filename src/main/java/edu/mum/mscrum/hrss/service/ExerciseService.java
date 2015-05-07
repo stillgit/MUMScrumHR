@@ -1,8 +1,8 @@
-package com.mumscrum.service;
+package edu.mum.mscrum.hrss.service;
 
 import java.util.List;
 
-import com.mumscrum.model.Activity;
+import edu.mum.mscrum.hrss.model.Activity;
 
 public interface ExerciseService {
 

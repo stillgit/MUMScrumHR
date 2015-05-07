@@ -1,4 +1,4 @@
-package com.mumscrum.repository;
+package edu.mum.mscrum.hrss.repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.mumscrum.model.Employee;
-import com.mumscrum.model.Role;
+import edu.mum.mscrum.hrss.model.Employee;
+import edu.mum.mscrum.hrss.model.Role;
 
 @Repository("employeeDAO")
 public class EmployeeDAO implements IEmployeeDAO {

@@ -1,11 +1,11 @@
-package com.mumscrum.service;
+package edu.mum.mscrum.hrss.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.mumscrum.model.Activity;
+import edu.mum.mscrum.hrss.model.Activity;
 
 
 @Service("exerciseService")

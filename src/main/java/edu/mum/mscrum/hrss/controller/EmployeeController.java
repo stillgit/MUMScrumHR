@@ -1,4 +1,4 @@
-package com.mumscrum.controller;
+package edu.mum.mscrum.hrss.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mumscrum.model.Employee;
-import com.mumscrum.model.Role;
-import com.mumscrum.service.IEmployeeService;
+import edu.mum.mscrum.hrss.model.Employee;
+import edu.mum.mscrum.hrss.model.Role;
+import edu.mum.mscrum.hrss.service.IEmployeeService;
 
 @Controller
 public class EmployeeController {

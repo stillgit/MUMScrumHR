@@ -1,9 +1,9 @@
-package com.mumscrum.service;
+package edu.mum.mscrum.hrss.service;
 
 import java.util.List;
 
-import com.mumscrum.model.Employee;
-import com.mumscrum.model.Role;
+import edu.mum.mscrum.hrss.model.Employee;
+import edu.mum.mscrum.hrss.model.Role;
 
 public interface IEmployeeService {
 

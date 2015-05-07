@@ -1,4 +1,4 @@
-package com.mumscrum.controller;
+package edu.mum.mscrum.hrss.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

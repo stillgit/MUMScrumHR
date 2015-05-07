@@ -1,12 +1,12 @@
-package com.mumscrum.service;
+package edu.mum.mscrum.hrss.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.mumscrum.model.Developer;
-import com.mumscrum.model.Employee;
-import com.mumscrum.model.Role;
+import edu.mum.mscrum.hrss.model.Developer;
+import edu.mum.mscrum.hrss.model.Employee;
+import edu.mum.mscrum.hrss.model.Role;
 
 @Service
 public class EmpFactoryImpl implements IEmpFactory {
