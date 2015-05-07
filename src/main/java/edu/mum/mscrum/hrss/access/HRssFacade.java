@@ -2,10 +2,7 @@ package edu.mum.mscrum.hrss.access;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import edu.mum.mscrum.hrss.model.Developer;
-import edu.mum.mscrum.hrss.service.IEmployeeService;
 import edu.mum.mscrum.model.Product;
 import edu.mum.mscrum.model.Release;
 import edu.mum.mscrum.model.ScrumMaster;
