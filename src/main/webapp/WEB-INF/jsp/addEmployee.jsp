@@ -83,6 +83,17 @@
 	        </label>	
 			<form:select id ="availableRoles" path="role"></form:select>
 			<br/> --%>
+			<label for="textinput1">
+	          Select Employee Type:
+	        </label>	
+			<form:select id ="availableRoles" path="activity"></form:select>
+			<br/>
+			 <label for="textinput1">
+	          Select Roles:
+	        </label>	
+			<form:checkboxes items="${roleNames}" path="rolenames" />
+			<form:errors path="rolenames" cssClass="error" />
+			<br/> 
 			<input type="submit" class="btn" value="Add Employee"/>
 	  </form:form>
      
