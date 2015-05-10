@@ -60,4 +60,36 @@ public class EmployeeDAO implements IEmployeeDAO {
 		return roles;
 	}
 
+	public void deleteEmployee(long id) {
+		
+		Employee rootEntity = em.getReference(Employee.class, id);
+		
+		System.out.println("**************" + rootEntity.getFirstName());
+		
+		em.remove(rootEntity);
+		
+		em.flush();
+
+	}
+
+	public Employee getEmployeeById(long id) {
+		
+		return em.getReference(Employee.class, id);
+	
+	}
+
+	public void updateEmployee(Employee emp) {
+
+		
+		Employee employee = em.find(Employee.class, emp.getId()); 
+		
+		employee.setFirstName(emp.getFirstName());
+		employee.setLastName(emp.getLastName());
+		
+		em.persist(employee);
+		em.flush();
+		
+		
+	}
+
 }

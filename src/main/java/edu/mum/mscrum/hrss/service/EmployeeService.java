@@ -29,9 +29,28 @@ public class EmployeeService implements IEmployeeService {
 		return employeeDAO.getAllEmployee();
 	}
 
+	@Transactional
 	public List<Role> getAllAvailableRoles() {
-		// TODO Auto-generated method stub
+		
 		return employeeDAO.getAllAvailableRoles();
+	}
+
+	@Transactional
+	public void deleteEmployee(long id) {
+		 
+		employeeDAO.deleteEmployee(id);
+	}
+	
+	@Transactional
+	public Employee getEmployeeById(long id) {
+		
+		return employeeDAO.getEmployeeById(id);
+	}
+
+	@Transactional
+	public void updateEmployee(Employee emp) {
+
+		employeeDAO.updateEmployee(emp);
 	}
 
 }

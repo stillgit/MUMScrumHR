@@ -12,5 +12,12 @@ public interface IEmployeeService {
 	Employee save(Employee employee);
 
 	List<Role> getAllAvailableRoles();
+
+	void deleteEmployee(long id);
+
+	Employee getEmployeeById(long id);
+
+	void updateEmployee(Employee emp);
+	
 	
 }

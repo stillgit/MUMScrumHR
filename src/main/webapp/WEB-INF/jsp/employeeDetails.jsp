@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
+ 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<title>Add Employee Page</title>
- 	<link href="assets/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+<title>Employees Detail</title>
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
 <script type="text/javascript" src="jquery-1.11.2.js"></script>
 <script type="text/javascript">
@@ -34,34 +37,26 @@
 		});		
 
 </script>
+
 </head>
 <body>
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">
-            Add Employee
+          <a class="brand" href="addEmployee.html">
+            Add Employees
           </a>
           <ul class="nav">
           </ul>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div>
-        <h1>
-          Add Employee
-        </h1>
-        <p>
-          Add Employee and select his/her role in the team.
-          <br>
-          &nbsp;
-        </p>
-      </div>
-      
-      <form:form commandName="employee">
-		<form:errors path="*" cssClass="errorblock" element="div" />
-			<div class="control-group">
+<div class ="container">
+
+<spring:url value="/update.html" var="action" />
+<form:form action="${action}" modelAttribute="employee">
+<form:errors  path="*"  cssClass= "errorblock" element="div"/>
+<div class="control-group">
 			<label for="textinput1">
 	          First Name:
 	        </label>	
@@ -74,39 +69,19 @@
 			<form:input path="lastName" cssErrorClass="error" />
 			<form:errors path="lastName" cssClass="error" />
 			
-			</div>
-<%-- 			<label for="textinput1">
-	          Select Employee Type:
-	        </label>	
-			<form:select id ="availableRoles" path="role"></form:select>
-			<br/>
-			<label for="textinput1">
-	          Select Roles:
-	        </label>	
-			<form:select id ="availableRoles" path="role"></form:select>
-			<br/> --%>
-			<div class="control-group">
 			<label for="textinput1">
 	          Select Employee Type:
 	        </label>	
 			<form:select id ="availableRoles" path="activity"></form:select>
-			
-			 <label for="textinput1">
+			<label for="textinput1">
 	          Select Roles:
 	        </label>	
 			<form:checkboxes items="${roleNames}" path="rolenames" />
 			<form:errors path="rolenames" cssClass="error" />
 			</div>
 			<input type="submit" class="btn" value="Add Employee"/>
-	  </form:form>
-     
-      <div class="control-group">
-      </div>
-    </div>
-
-     <script src="jquery-1.8.3.js">
-    </script>
-    <script src="assets/js/bootstrap.js">
-    </script>
-  </body>
+	</form:form>
+<%-- <h1>hello this is details page for ${currentEmployee}</h1> --%>
+</div>
+</body>
 </html>

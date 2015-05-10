@@ -26,7 +26,7 @@
    <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">
+          <a class="brand" href="getEmployees.html">
            All Employees
           </a>
           <ul class="nav">
@@ -40,6 +40,11 @@
 <h3>
 <a href="getEmployees.html">
      See all Employees
+</a>
+</h3>
+<h3>
+<a href="home.html">
+    home
 </a>
 </h3>
 </body>

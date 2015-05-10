@@ -12,5 +12,11 @@ public interface IEmployeeDAO {
 	List<Employee> getAllEmployee();
 
 	List<Role> getAllAvailableRoles();
+
+	void deleteEmployee(long id);
+
+	Employee getEmployeeById(long id);
+
+	void updateEmployee(Employee emp);
 	
 }

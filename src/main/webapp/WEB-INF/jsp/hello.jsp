@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${greeting}</h1>
+<h1>hello</h1>
+
+${message}
+
 </body>
 </html>

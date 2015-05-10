@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -18,7 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Employee {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private long id;
 	
 	private String firstName;
@@ -26,13 +27,25 @@ public class Employee {
 	private String lastName;
 	
 	@NotEmpty
-	private String activity;
+	private String activity; // variable representing Employee type (Developer, tester , ... etc)
 	
 	@NotEmpty
-	private String[] rolenames;
+	private String[] rolenames; 
 	
 	@OneToMany(mappedBy="employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Role> roles;
+
+	public Employee() {
+	}
+
+	public Employee(String firstName, String lastName, String activity,
+			String[] rolenames, List<Role> roles) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.activity = activity;
+		this.rolenames = rolenames;
+		this.roles = roles;
+	}
 
 	public String getActivity() {
 		return activity;
