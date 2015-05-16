@@ -15,29 +15,6 @@
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-<script type="text/javascript" src="jquery-1.11.2.js"></script>
-<script type="text/javascript">
-
-	$(document).ready(
-		function(){
-			$.getJSON('<spring:url value="availableRoles.json"/>',{ajax : 'true'},
-					
-			function(data){
-				var html = '<option value =""> -- please seletct one --</option>';
-				var len = data.length;
-				for(var i=0; i<len ; i++){
-					html += '<option value ="' + data[i].roleName + '">'
-							+ data[i].roleName + '</option>';
-				}
-				
-				html += '</option>';
-				$('#availableRoles').html(html);
-			});
-			
-		});		
-
-</script>
-
 </head>
 <body>
     <div class="navbar navbar-fixed-top navbar-inverse">
@@ -68,18 +45,21 @@
 	        </label>	
 			<form:input path="lastName" cssErrorClass="error" />
 			<form:errors path="lastName" cssClass="error" />
-			
-			<label for="textinput1">
-	          Select Employee Type:
-	        </label>	
-			<form:select id ="availableRoles" path="activity"></form:select>
-			<label for="textinput1">
-	          Select Roles:
-	        </label>	
-			<form:checkboxes items="${roleNames}" path="rolenames" />
-			<form:errors path="rolenames" cssClass="error" />
 			</div>
-			<input type="submit" class="btn" value="Add Employee"/>
+			<div class="control-group">			
+			<label for="textinput1">
+	            Select Roles:
+	        </label>	
+				
+			<form:checkboxes items="${roleNames}" path="roleNames"></form:checkboxes>
+
+			<label for="textinput1">
+	          	Select Employee Type:
+	        </label>	
+			<form:select items="${empTypeNames}" path="activity" />
+			<form:errors path="activity" cssClass="error" />
+			</div>
+			<input type="submit" class="btn" value="Update"/>
 	</form:form>
 <%-- <h1>hello this is details page for ${currentEmployee}</h1> --%>
 </div>

@@ -1,5 +1,6 @@
 package edu.mum.mscrum.hrss.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,7 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+
+
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -30,20 +35,23 @@ public class Employee {
 	private String activity; // variable representing Employee type (Developer, tester , ... etc)
 	
 	@NotEmpty
-	private String[] rolenames; 
+	private String[] roleNames; 
 	
-	@OneToMany(mappedBy="employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Role> roles;
+	 @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+	 @JoinTable(name="EmployeeAndRole",
+	 			joinColumns = @JoinColumn(name="employees_id"),
+	            inverseJoinColumns=@JoinColumn(name="roles_id"))
+	 private List<Role> roles = new ArrayList<Role>();
 
 	public Employee() {
 	}
 
 	public Employee(String firstName, String lastName, String activity,
-			String[] rolenames, List<Role> roles) {
+			String[] roleNames, List<Role> roles) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.activity = activity;
-		this.rolenames = rolenames;
+		this.roleNames = roleNames;
 		this.roles = roles;
 	}
 
@@ -65,8 +73,8 @@ public class Employee {
 	}
 
 
-	public String[] getRolenames() {
-		return rolenames;
+	public String[] getRoleNames() {
+		return roleNames;
 	}
 
 	public List<Role> getRoles() {
@@ -90,8 +98,8 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public void setRolenames(String[] rolenames) {
-		this.rolenames = rolenames;
+	public void setRoleNames(String[] rolenames) {
+		this.roleNames = rolenames;
 	}
 
 	public void setRoles(List<Role> roles) {

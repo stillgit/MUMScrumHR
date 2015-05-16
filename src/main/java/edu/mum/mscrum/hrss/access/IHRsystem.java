@@ -5,8 +5,7 @@ import java.util.List;
 import edu.mum.mscrum.hrss.model.Developer;
 import edu.mum.mscrum.model.Product;
 import edu.mum.mscrum.model.Release;
-import edu.mum.mscrum.model.ScrumMaster;
-import edu.mum.mscrum.model.Tester;
+import edu.mum.mscrum.hrss.model.*;
 import edu.mum.mscrum.model.UserStory;
 
 public interface IHRsystem {

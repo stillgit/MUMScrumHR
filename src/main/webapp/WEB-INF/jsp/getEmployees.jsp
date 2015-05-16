@@ -39,7 +39,7 @@
 						</tr>
 							<c:forEach items="${employee.roles}" var="role">
 								<tr>
-									<td>${role.id}</td><td>${role.name}</td>
+									<td>${role.id}</td><td>${role.roleName}</td>
 								</tr>
 							</c:forEach>
 						
