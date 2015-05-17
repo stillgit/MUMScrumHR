@@ -1,10 +1,10 @@
 package edu.mum.mscrum.hrss.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -15,14 +15,20 @@ import edu.mum.mscrum.hrss.model.Role;
 @Repository("employeeDAO")
 public class EmployeeDAO implements IEmployeeDAO {
 
-	@PersistenceContext
+	@PersistenceContext(type=PersistenceContextType.TRANSACTION)
 	private EntityManager em;
 
 	public Employee save(Employee employee) {
 
-		em.persist(employee);
+		if( employee.getId() == 0)
+		{
+			em.persist(employee);
 
-		em.flush();
+			em.flush();
+		}              
+		else{
+			employee = em.merge(employee);
+		}
 
 		return employee;
 	}
@@ -39,23 +45,28 @@ public class EmployeeDAO implements IEmployeeDAO {
 
 	public List<Role> getAllAvailableRoles() {
 		// hard coded for the time being.
-		List<Role> roles = new ArrayList<Role>();
+//		List<Role> roles = new ArrayList<Role>();
+//
+//		Role pm = new Role();
+//		pm.setRoleName("Project Manager");
+//		roles.add(pm);
+//
+//		Role sm = new Role();
+//		sm.setRoleName("Scrum Master");
+//		roles.add(sm);
+//
+//		Role dev = new Role();
+//		dev.setRoleName("Developer");
+//		roles.add(dev);
+//
+//		Role ts = new Role();
+//		ts.setRoleName("Tester");
+//		roles.add(ts);
+		
+		Query query = em.createQuery("select r from Role r");
 
-		Role pm = new Role();
-		pm.setRoleName("Project Manager");
-		roles.add(pm);
-
-		Role sm = new Role();
-		sm.setRoleName("Scrum Master");
-		roles.add(sm);
-
-		Role dev = new Role();
-		dev.setRoleName("Developer");
-		roles.add(dev);
-
-		Role ts = new Role();
-		ts.setRoleName("Tester");
-		roles.add(ts);
+		@SuppressWarnings("unchecked")
+		List<Role> roles = query.getResultList();
 
 		return roles;
 	}
@@ -81,14 +92,15 @@ public class EmployeeDAO implements IEmployeeDAO {
 	public void updateEmployee(Employee emp) {
 
 		
-		Employee employee = em.find(Employee.class, emp.getId()); 
-		
-		employee.setFirstName(emp.getFirstName());
-		employee.setLastName(emp.getLastName());
-		
-		em.persist(employee);
-		em.flush();
-		
+//		Employee employee = em.find(Employee.class, emp.getId()); 
+//		
+//		employee.setFirstName(emp.getFirstName());
+//		employee.setLastName(emp.getLastName());
+//		
+//		em.persist(employee);
+//		em.flush();
+//		
+		em.merge(emp);
 		
 	}
 

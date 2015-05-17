@@ -1,5 +1,6 @@
 package edu.mum.mscrum.model;
 
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
 
@@ -86,5 +87,8 @@ public class ProductBacklog {
 	
 	
 	
+=======
+public class ProductBacklog {
+>>>>>>> branch 'master' of https://github.com/stillgit/MUMScrumHR.git
 
 }

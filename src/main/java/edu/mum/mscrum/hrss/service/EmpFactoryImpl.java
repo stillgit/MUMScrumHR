@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 import edu.mum.mscrum.hrss.model.Developer;
 import edu.mum.mscrum.hrss.model.Employee;
 import edu.mum.mscrum.hrss.model.Role;
+import edu.mum.mscrum.hrss.model.ScrumMaster;
+import edu.mum.mscrum.hrss.model.Tester;
 
 @Service
 public class EmpFactoryImpl implements IEmpFactory {
 
 	public Employee createEmployee(String position, List<Role> roles) {
+		
+		
 //
 //		if(position=="ProjectManager"){
 //			
@@ -22,35 +26,40 @@ public class EmpFactoryImpl implements IEmpFactory {
 //			
 //			return pm;
 //		}
-//		if(position=="ScrumMaster"){
-//			
-//			Employee sm = new ScrumMaster();
-//			for(Role role:roles){
-//			sm.getRoles().add(role);
-//			}
-//			
-//			return sm;
-//		}		
+		if(position=="ScrumMaster"){
+			
+			Employee sm = new ScrumMaster();
+			for(Role role:roles){
+			sm.getRoles().add(role);
+			}
+			
+			return sm;
+		}		
 		if(position=="Developer"){
 			
 			Employee dev = new Developer();
+			
 			for(Role role:roles){
 			dev.getRoles().add(role);
 			}
 			
 			return dev;
 		}
-//		if(position=="Tester"){
-//			
-//			Employee ts = new Tester();
-//			for(Role role:roles){
-//			ts.getRoles().add(role);
-//			}
-//			
-//			return ts;
-//		}
-		
-		return null;
+		if(position=="Tester"){
+			
+			Employee ts = new Tester();
+			for(Role role:roles){
+			ts.getRoles().add(role);
+			}
+			
+			return ts;
+		}
+		else{
+			
+			Employee emp = new Employee();
+			emp.setRoles(roles);
+		    return emp;
+		}
 	}
 
 }

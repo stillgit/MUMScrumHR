@@ -1,8 +1,12 @@
 package edu.mum.mscrum.hrss.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 
@@ -14,12 +18,11 @@ public class Role {
 	
 	private String roleName;
 	
-	@ManyToOne
-	private Employee employee;
-
+	@ManyToMany
+	private List<Employee> employees = new ArrayList<Employee>();
 	
-	public Employee getEmployee() {
-		return employee;
+	public List<Employee> getEmployees() {
+		return employees;
 	}
 
 	public long getId() {
@@ -30,9 +33,10 @@ public class Role {
 		return roleName;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
+
 
 	public void setId(long id) {
 		this.id = id;

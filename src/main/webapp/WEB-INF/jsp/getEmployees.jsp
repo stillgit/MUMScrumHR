@@ -12,6 +12,7 @@
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
+
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
@@ -23,7 +24,8 @@
         </div>
       </div>
     </div>
-<div class ="container">
+
+   <div class ="container">
 	<table class="table table-striped table-hover">
 		<tr>
 		 	 <th>ID</th><th>FirstName</th><th>LastName</th>
@@ -39,7 +41,7 @@
 						</tr>
 							<c:forEach items="${employee.roles}" var="role">
 								<tr>
-									<td>${role.id}</td><td>${role.name}</td>
+									<td>${role.id}</td><td>${role.roleName}</td>
 								</tr>
 							</c:forEach>
 						
@@ -61,5 +63,6 @@
 	
 	</table>
 </div>
+
 </body>
 </html>

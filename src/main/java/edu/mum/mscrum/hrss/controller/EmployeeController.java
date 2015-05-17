@@ -38,12 +38,13 @@ public class EmployeeController {
 	    
 		model.addAttribute("empTypeNames", empTypeNames);
 		
-		List<String> roleNames = new ArrayList<String>();
-		roleNames.add("Project Manager Role");
-		roleNames.add("Scrum Master Role");
-		roleNames.add("Developer Role");
-		roleNames.add("Tester Role");
+		List<Role> availableRoles = findAllAvailableRoles();
 		
+		List<String> roleNames = new ArrayList<String>();
+		
+		for(Role role:availableRoles){
+		roleNames.add(role.getRoleName());
+		}
 		model.addAttribute("roleNames", roleNames);
 		
 		return "addEmployee";
@@ -58,12 +59,18 @@ public class EmployeeController {
 
 		System.out.println("employee is set: " + employee.getActivity());
 
-		System.out.println("employee is set: " + employee.getRolenames());
+		System.out.println("employee is set: " + employee.getRoleNames());
 		
 		if(result.hasErrors()) {
 			return "addEmployee";
 		}
 		else{
+			
+			System.out.println("***************** employee type***************" + employee.getActivity());
+			System.out.println("################ employee roles  #############" + employee.getRoleNames().length);
+			System.out.println("################ employee id  #############" + employee.getId());
+			
+			
 			employeeService.save(employee);
 		}
 		
@@ -120,12 +127,21 @@ public class EmployeeController {
 		
 		System.out.println("*************** the employee in the model attribute ********"+ emp2.getFirstName());
 		
-		List<String> roleNames = new ArrayList<String>();
-		roleNames.add("Project Manager Role");
-		roleNames.add("Scrum Master Role");
-		roleNames.add("Developer Role");
-		roleNames.add("Tester Role");
+		List<String> empTypeNames = new ArrayList<String>();
+	    empTypeNames.add("ProjectManager");
+	    empTypeNames.add("ScrumMaster");
+	    empTypeNames.add("Developer");
+	    empTypeNames.add("Tester");
+	    
+		model.addAttribute("empTypeNames", empTypeNames);
 		
+		List<Role> availableRoles = findAllAvailableRoles();
+		
+		List<String> roleNames = new ArrayList<String>();
+		
+		for(Role role:availableRoles){
+		roleNames.add(role.getRoleName());
+		}
 		model.addAttribute("roleNames", roleNames);
 		
 		return "employeeDetails";
@@ -143,7 +159,7 @@ public class EmployeeController {
 		
 		System.out.println("Employee Updated last name: " + emp.getLastName() );
 		
-		System.out.println("Employee Updated last name: " + emp.getId() );
+		System.out.println("Employee id: " + emp.getId() );
 		
 		if(result.hasErrors()){
 			return "employeeDetails";
