@@ -49,7 +49,7 @@
             Please login to get started.
           </p>
         </div>
-        <a class="btn btn-primary" href="addEmployee.html">
+        <a class="btn btn-primary" href="home.html">
           Login »
         </a>
         

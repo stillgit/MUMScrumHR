@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-	<http auto-config="true" use-expressions="true">
+	<http auto-config="true">
 		<intercept-url pattern="/**" access="ROLE_USER" />
 	</http>
 

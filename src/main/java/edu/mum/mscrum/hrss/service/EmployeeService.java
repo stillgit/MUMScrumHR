@@ -8,49 +8,53 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.mum.mscrum.hrss.model.Employee;
 import edu.mum.mscrum.hrss.model.Role;
-import edu.mum.mscrum.hrss.repository.IEmployeeDAO;
+import edu.mum.mscrum.hrss.repository.EmployeeDAO;
 
-@Service
+//@Service
 public class EmployeeService implements IEmployeeService {
 
-	@Autowired
-	private IEmployeeDAO employeeDAO;
+	//@Autowired
+	private EmployeeDAO employeeDao;
 	
+	public void setEmployeeDao(EmployeeDAO employeeDao) {
+		this.employeeDao = employeeDao;
+	}
+
 	@Transactional
 	public Employee save(Employee employee) {
 
-		return employeeDAO.save(employee);
+		return employeeDao.save(employee);
 	
 	}
 
 	@Transactional
 	public List<Employee> findAllEmployees() {
 		
-		return employeeDAO.getAllEmployee();
+		return employeeDao.getAllEmployee();
 	}
 
 	@Transactional
 	public List<Role> getAllAvailableRoles() {
 		
-		return employeeDAO.getAllAvailableRoles();
+		return employeeDao.getAllAvailableRoles();
 	}
 
 	@Transactional
 	public void deleteEmployee(long id) {
 		 
-		employeeDAO.deleteEmployee(id);
+		employeeDao.deleteEmployee(id);
 	}
 	
 	@Transactional
 	public Employee getEmployeeById(long id) {
 		
-		return employeeDAO.getEmployeeById(id);
+		return employeeDao.getEmployeeById(id);
 	}
 
 	@Transactional
 	public void updateEmployee(Employee emp) {
 
-		employeeDAO.updateEmployee(emp);
+		employeeDao.updateEmployee(emp);
 	}
 
 }
