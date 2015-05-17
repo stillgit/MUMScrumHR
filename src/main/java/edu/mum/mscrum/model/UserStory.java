@@ -1,11 +1,9 @@
 package edu.mum.mscrum.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -17,7 +15,8 @@ public class UserStory {
 	
 	private String name;
 	
-   @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.LAZY)
+	
+   @ManyToOne
    private ProductBacklog productBacklog;
 	
 	//private Employee productManager;

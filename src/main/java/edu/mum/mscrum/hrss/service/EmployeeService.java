@@ -1,31 +1,42 @@
 package edu.mum.mscrum.hrss.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.mum.mscrum.hrss.model.Employee;
 import edu.mum.mscrum.hrss.model.Role;
-import edu.mum.mscrum.hrss.repository.EmployeeDAO;
+import edu.mum.mscrum.hrss.repository.IEmployeeDAO;
+import edu.mum.mscrum.hrss.repository.IRoleDAO;
 
 //@Service
 public class EmployeeService implements IEmployeeService {
 
-	@Autowired
+	//@Autowired
 	private IEmployeeDAO employeeDAO;
 	
-	public void setEmployeeDao(EmployeeDAO employeeDao) {
-		this.employeeDao = employeeDao;
-	}
-
-	@Autowired 
+	
+	//@Autowired 
 	private IRoleDAO roleDAO;
 	
-	@Autowired
+	//@Autowired
 	private IEmpFactory employeeFactory;
 	
+	
+	
+	public void setEmployeeDAO(IEmployeeDAO employeeDAO) {
+		this.employeeDAO = employeeDAO;
+	}
+
+	public void setRoleDAO(IRoleDAO roleDAO) {
+		this.roleDAO = roleDAO;
+	}
+
+	public void setEmployeeFactory(IEmpFactory employeeFactory) {
+		this.employeeFactory = employeeFactory;
+	}
+
 	@Transactional
 	public Employee save(Employee employee) {
 		

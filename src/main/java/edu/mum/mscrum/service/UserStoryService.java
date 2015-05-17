@@ -9,16 +9,18 @@ import edu.mum.mscrum.repository.IUserStoryDAO;
 
 public class UserStoryService implements IUserStoryService {
 	
-	private IUserStoryDAO productBacklogDao;
+	private IUserStoryDAO userStoryDAO;
 
-	public void setProductBacklogDao(IUserStoryDAO productBacklogDao) {
-		this.productBacklogDao = productBacklogDao;
+	
+
+	public void setUserStoryDAO(IUserStoryDAO userStoryDAO) {
+		this.userStoryDAO = userStoryDAO;
 	}
 
 	@Transactional
 	public UserStory save(UserStory userStory) {
 
-		productBacklogDao.save(userStory);
+		userStoryDAO.save(userStory);
 		return userStory;
 	}
 
@@ -30,7 +32,7 @@ public class UserStoryService implements IUserStoryService {
 
 	@Transactional
 	public void deleteUserStory(long id) {
-		productBacklogDao.deleteUserStory(id);
+		userStoryDAO.deleteUserStory(id);
 		
 	}
 
@@ -48,7 +50,7 @@ public class UserStoryService implements IUserStoryService {
 
 	public List<UserStory> allUserStoryByProductBacklog(long productId) {
 		
-		return productBacklogDao.allUserStoryByProductBacklog(productId);
+		return userStoryDAO.allUserStoryByProductBacklog(productId);
 	}
 	
 	

@@ -11,25 +11,27 @@ import edu.mum.mscrum.repository.IProductBacklogDAO;
 public class ProductBacklogService implements IProductBacklogService{
 	
 	//@Autowired
-	private IProductBacklogDAO productDao;
+	private IProductBacklogDAO productBacklogDAO;
 
 	
 	
 	
-	public void setProductDao(IProductBacklogDAO productDao) {
-		this.productDao = productDao;
+
+
+	public void setProductBacklogDAO(IProductBacklogDAO productBacklogDAO) {
+		this.productBacklogDAO = productBacklogDAO;
 	}
 
 	@Transactional
 	public List<String> getAllAvailableProductCategory() {
 			
-		return productDao.getAllAvailableProductCategory();
+		return productBacklogDAO.getAllAvailableProductCategory();
 	}
 
 	@Transactional
 	public ProductBacklog save(ProductBacklog productBacklog) {
 		
-		productDao.save(productBacklog);
+		productBacklogDAO.save(productBacklog);
 		return productBacklog;
 	}
 	
@@ -42,23 +44,23 @@ public class ProductBacklogService implements IProductBacklogService{
 	@Transactional
 	public List<ProductBacklog> getAllProductBacklogByProjectManager() {
 	
-		return productDao.getAllProductBacklogByProjectManager();
+		return productBacklogDAO.getAllProductBacklogByProjectManager();
 	}
 
 	@Transactional
 	public void deleteProductBacklog(long id) {
 		
-		productDao.deleteProductBacklog(id);
+		productBacklogDAO.deleteProductBacklog(id);
 	}
 
 	public ProductBacklog getProductBacklogId(long id) {
 		
-		return productDao.getProductBacklogId(id);
+		return productBacklogDAO.getProductBacklogId(id);
 	}
 
 	public void updateProductBacklog(ProductBacklog pro) {
 	
-		productDao.updateProductBacklog(pro);
+		productBacklogDAO.updateProductBacklog(pro);
 		
 	}
 

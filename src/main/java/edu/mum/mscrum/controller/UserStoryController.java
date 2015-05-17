@@ -31,7 +31,7 @@ public class UserStoryController {
 	
 	
 	@RequestMapping( value="/addUserStory/{id}", method = RequestMethod.GET)
-	public String addUserStory(@PathVariable long id,@ModelAttribute("userStory") UserStory userStory, HttpSession proSession,Model model){
+	public String addUserStory(@PathVariable long id,@ModelAttribute("userStory") UserStory userStory,Model model, HttpSession proSession){
 		
 		ProductBacklog pro = productBacklogService.getProductBacklogId(id);
 		proSession.setAttribute("currentProductBacklog", pro);
@@ -44,7 +44,7 @@ public class UserStoryController {
 	}
 
 	@RequestMapping(value = "/addUserStory", method = RequestMethod.POST)
-	public String saveUserStory(@Valid @ModelAttribute("userStory") UserStory userStory, BindingResult result,HttpSession proSession,Model model) {
+	public String saveUserStory(@Valid @ModelAttribute("userStory") UserStory userStory, BindingResult result,Model model,HttpSession proSession) {
 		
 		System.out.println("result has errors: " + result.hasErrors());
 		
@@ -54,10 +54,12 @@ public class UserStoryController {
 		else{
 			ProductBacklog currentPro=(ProductBacklog) proSession.getAttribute("currentProductBacklog");
 			System.out.println("!!!!!!!!!!!"+currentPro.getCategory()+"!!!!!!!!!!!!"+"while setting the userstory");
-			//userStory.setProductBacklog(currentPro);
+			userStory.setProductBacklog(currentPro);
+			//currentPro.getUserStories().add(userStory);
 			//currentPro.setUserStories(userStories);
-			//productBacklogService.updateProduct(currentPro);
 			userStoryService.save(userStory);
+			//productBacklogService.updateProductBacklog(currentPro);
+			
 			
 		}
 		

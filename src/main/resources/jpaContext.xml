@@ -45,29 +45,29 @@
 	
 	<!-- service and DAO injection  -->
 	 <bean id="employeeService" class="edu.mum.mscrum.hrss.service.EmployeeService">
-        <property name="employeeDao" ref="employeeDao"/>
+        <property name="employeeDAO" ref="employeeDAO"/>
     </bean> 
 
-     <bean id="employeeDao" class="edu.mum.mscrum.hrss.repository.EmployeeDAO">
+     <bean id="employeeDAO" class="edu.mum.mscrum.hrss.repository.EmployeeDAO">
         
     </bean> 
     
     
-    <bean id="productService" class="edu.mum.mscrum.service.ProductBacklogService">
-        <property name="productDao" ref="productDao"/>
+    <bean id="productBacklogService" class="edu.mum.mscrum.service.ProductBacklogService">
+        <property name="productBacklogDAO" ref="productBacklogDAO"/>
     </bean> 
 
-     <bean id="productDao" class="edu.mum.mscrum.repository.ProductBacklogDAO">
+     <bean id="productBacklogDAO" class="edu.mum.mscrum.repository.ProductBacklogDAO">
         
     </bean> 
     
     
     
-     <bean id="productBacklogService" class="edu.mum.mscrum.service.UserStoryService">
-        <property name="productBacklogDao" ref="productBacklogDao"/>
+     <bean id="userStoryService" class="edu.mum.mscrum.service.UserStoryService">
+        <property name="userStoryDAO" ref="userStoryDAO"/>
     </bean> 
 
-     <bean id="productBacklogDao" class="edu.mum.mscrum.repository.UserStoryDAO">
+     <bean id="userStoryDAO" class="edu.mum.mscrum.repository.UserStoryDAO">
         
     </bean>
 </beans>
