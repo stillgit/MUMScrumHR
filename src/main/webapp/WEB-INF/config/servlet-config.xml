@@ -4,18 +4,16 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<mvc:annotation-driven/>
-	
-	<mvc:view-controller path="/" view-name="home"/>
 	
 	<mvc:resources location="assets" mapping="/assets/**"/>
 	<mvc:resources location="pdfs" mapping="/pdfs/**"/>
 	
-	<context:component-scan base-package="edu.mum.mscrum"/>
+	<context:component-scan base-package="edu.mum.mscrum.hrss.controller, edu.mum.mscrum.controller"/>
 	
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="order" value="1" />
@@ -62,19 +60,5 @@
 	 p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 	 	
 	 <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0"/>
-	 
-	 
-	 <!-- For tiles -->
-    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
-        <property name="order" value="-2" />
-    </bean>
-    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <property name="definitions">
-            <list>
-                <value>/WEB-INF/tiles/definitions/tile-definition.xml</value>
-            </list>
-        </property>
-    </bean>
 
 </beans>

@@ -3,8 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 		
 	<context:annotation-config />
@@ -33,7 +33,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -41,33 +41,4 @@
 		<property name="username" value="root" />
 		<property name="password" value="mumsql" />
 	</bean>
-	
-	
-	<!-- service and DAO injection  -->
-	 <bean id="employeeService" class="edu.mum.mscrum.hrss.service.EmployeeService">
-        <property name="employeeDAO" ref="employeeDAO"/>
-    </bean> 
-
-     <bean id="employeeDAO" class="edu.mum.mscrum.hrss.repository.EmployeeDAO">
-        
-    </bean> 
-    
-    
-    <bean id="productBacklogService" class="edu.mum.mscrum.service.ProductBacklogService">
-        <property name="productBacklogDAO" ref="productBacklogDAO"/>
-    </bean> 
-
-     <bean id="productBacklogDAO" class="edu.mum.mscrum.repository.ProductBacklogDAO">
-        
-    </bean> 
-    
-    
-    
-     <bean id="userStoryService" class="edu.mum.mscrum.service.UserStoryService">
-        <property name="userStoryDAO" ref="userStoryDAO"/>
-    </bean> 
-
-     <bean id="userStoryDAO" class="edu.mum.mscrum.repository.UserStoryDAO">
-        
-    </bean>
 </beans>

@@ -2,26 +2,20 @@ package edu.mum.mscrum.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.mum.mscrum.model.ProductBacklog;
 import edu.mum.mscrum.repository.IProductBacklogDAO;
 
-//@Service
-public class ProductBacklogService implements IProductBacklogService{
-	
-	//@Autowired
+@Service
+public class ProductBacklogService implements IProductBacklogService {
+
+	@Autowired
 	private IProductBacklogDAO productBacklogDAO;
 
 	
-	
-	
-
-
-	public void setProductBacklogDAO(IProductBacklogDAO productBacklogDAO) {
-		this.productBacklogDAO = productBacklogDAO;
-	}
-
 	@Transactional
 	public List<String> getAllAvailableProductCategory() {
 			

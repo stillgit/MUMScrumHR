@@ -1,5 +1,6 @@
 package edu.mum.mscrum.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -18,16 +19,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import edu.mum.mscrum.model.ProductBacklog;
 import edu.mum.mscrum.service.IProductBacklogService;
 
-
 @Controller
 public class ProductBacklogController {
-	
+
 	@Autowired
 	private IProductBacklogService productBacklogService;
 
 	
 	@RequestMapping(value = "/addProductBacklog", method = RequestMethod.GET)
-	public String addProductBacklog(@ModelAttribute("productBacklog") ProductBacklog productBacklog) {
+	public String addProductBacklog(@ModelAttribute("productBacklog") ProductBacklog productBacklog, Model model) {
+		
+		List<String> categoryNames = new ArrayList<String>();
+		categoryNames.add("ProductCategory 1");
+		categoryNames.add("ProductCategory 2");
+		categoryNames.add("ProductCategory 3");
+		categoryNames.add("ProductCategory 4");
+	    
+		model.addAttribute("categoryNames", categoryNames);
 		
 		return "addProductBacklog";
 	}
@@ -57,7 +65,7 @@ public class ProductBacklogController {
 		return "productBacklogSuccess";
 	}
 	
-	@RequestMapping(value = "/getProductBacklog", method = RequestMethod.GET)
+	@RequestMapping(value = "/getProductBacklogs", method = RequestMethod.GET)
 	public String allProductBacklogByManager(Model model) {
 		
         List<ProductBacklog> productBacklogs = productBacklogService.getAllProductBacklogByProjectManager();

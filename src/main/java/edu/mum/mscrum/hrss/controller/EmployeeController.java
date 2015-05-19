@@ -28,11 +28,11 @@ public class EmployeeController {
 
 	
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
-	public String addGoal(@ModelAttribute("employee") Employee employee, Model model) {
-	    
+	public String addGoal(@ModelAttribute("employee") Employee employee, Model model) { 
+		
 		List<String> empTypeNames = new ArrayList<String>();
-	    empTypeNames.add("Project Manager");
-	    empTypeNames.add("Scrum Master");
+	    empTypeNames.add("ProjectManager");
+	    empTypeNames.add("ScrumMaster");
 	    empTypeNames.add("Developer");
 	    empTypeNames.add("Tester");
 	    

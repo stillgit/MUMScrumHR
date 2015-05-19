@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
 
@@ -8,11 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-
  	<link href="assets/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 <title>Add ProductBacklog</title>
-<script type="text/javascript" src="jquery-1.11.2.js"></script>
+<!-- <script type="text/javascript" src="jquery-1.11.2.js"></script>
  
 <script type="text/javascript">
 
@@ -34,7 +34,7 @@
 			
 		});		
 
-</script> 
+</script>  -->
 </head>
 <body>
     <div class="navbar navbar-fixed-top navbar-inverse">
@@ -83,7 +83,7 @@
           <label for="selectinput1">
             Select Product Category:
           </label>
-          <form:select id="categories" path="category" />
+          <form:select items="${categoryNames}" path="category" />
           </div>
 			 
 			<input type="submit" class="btn" value="Add ProductBacklog"/>

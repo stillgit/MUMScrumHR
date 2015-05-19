@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mum.mscrum.model.ProductBacklog;
 import edu.mum.mscrum.model.UserStory;
-import edu.mum.mscrum.service.IUserStoryService;
 import edu.mum.mscrum.service.IProductBacklogService;
-
+import edu.mum.mscrum.service.IUserStoryService;
 
 @Controller
 public class UserStoryController {
@@ -91,8 +90,9 @@ public class UserStoryController {
 		
 			userStoryService.deleteUserStory(id);
 								
-			return "redirect:/getProducts.html";
+			return "redirect:/getProductBacklogs.html";
 			
 		}
+
 
 }

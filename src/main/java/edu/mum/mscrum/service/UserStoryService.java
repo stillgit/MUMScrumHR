@@ -2,21 +2,20 @@ package edu.mum.mscrum.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.mum.mscrum.model.UserStory;
 import edu.mum.mscrum.repository.IUserStoryDAO;
 
+@Service
 public class UserStoryService implements IUserStoryService {
 	
+	@Autowired
 	private IUserStoryDAO userStoryDAO;
 
 	
-
-	public void setUserStoryDAO(IUserStoryDAO userStoryDAO) {
-		this.userStoryDAO = userStoryDAO;
-	}
-
 	@Transactional
 	public UserStory save(UserStory userStory) {
 
@@ -32,6 +31,7 @@ public class UserStoryService implements IUserStoryService {
 
 	@Transactional
 	public void deleteUserStory(long id) {
+		
 		userStoryDAO.deleteUserStory(id);
 		
 	}
@@ -48,11 +48,13 @@ public class UserStoryService implements IUserStoryService {
 		
 	}
 
+	@Transactional
 	public List<UserStory> allUserStoryByProductBacklog(long productId) {
 		
 		return userStoryDAO.allUserStoryByProductBacklog(productId);
 	}
 	
 	
+
 
 }

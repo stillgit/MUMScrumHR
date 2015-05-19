@@ -11,10 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import edu.mum.mscrum.model.UserStory;
 
+@Repository
+public class UserStoryDAO implements IUserStoryDAO {
 
-@Repository("productBacklogDAO")
-public class UserStoryDAO implements IUserStoryDAO{
-	
 	@PersistenceContext(type=PersistenceContextType.TRANSACTION)
 	private EntityManager em;
 	

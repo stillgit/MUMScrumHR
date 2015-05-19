@@ -12,8 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.mum.mscrum.model.ProductBacklog;
 
-
-@Repository("productDAO")
+@Repository
 public class ProductBacklogDAO implements IProductBacklogDAO{
 	
 	@PersistenceContext(type=PersistenceContextType.TRANSACTION)
@@ -86,5 +85,6 @@ public class ProductBacklogDAO implements IProductBacklogDAO{
 		
 		
 	}
+
 
 }

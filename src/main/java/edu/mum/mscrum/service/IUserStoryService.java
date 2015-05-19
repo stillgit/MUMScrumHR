@@ -5,14 +5,17 @@ import java.util.List;
 import edu.mum.mscrum.model.UserStory;
 
 public interface IUserStoryService {
-	
-    
-	UserStory save (UserStory userStory);
-	List<UserStory> getAllUserStories();
-	void deleteUserStory(long id);
-	UserStory getUserStoryById(long id);
-	void updateUserStory(UserStory userStory);
-	List<UserStory>allUserStoryByProductBacklog(long productId);
-	
+
+	public abstract UserStory save(UserStory userStory);
+
+	public abstract List<UserStory> getAllUserStories();
+
+	public abstract void deleteUserStory(long id);
+
+	public abstract UserStory getUserStoryById(long id);
+
+	public abstract void updateUserStory(UserStory userStory);
+
+	public abstract List<UserStory> allUserStoryByProductBacklog(long productId);
 
 }

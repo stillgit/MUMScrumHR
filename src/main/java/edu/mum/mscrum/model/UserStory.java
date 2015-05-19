@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class UserStory {
 
@@ -15,13 +14,10 @@ public class UserStory {
 	
 	private String name;
 	
+    @ManyToOne
+    private ProductBacklog productBacklog;
 	
-   @ManyToOne
-   private ProductBacklog productBacklog;
-	
-	//private Employee productManager;
-	
-	
+   
 	public long getId() {
 		return id;
 	}
@@ -30,35 +26,21 @@ public class UserStory {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public ProductBacklog getProductBacklog() {
 		return productBacklog;
-	}
-
-	public void setProductBacklog(ProductBacklog productBacklog) {
-		this.productBacklog = productBacklog;
 	}
 
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-//	public Employee getProductManager() {
-//		return productManager;
-//	}
-//	public void setProductManager(Employee productManager) {
-//		this.productManager = productManager;
-//	}
-	
-	
-	public UserStory createUserStory(){
-		return null;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public Release createRelease(){
-		return null;
+
+	public void setProductBacklog(ProductBacklog productBacklog) {
+		this.productBacklog = productBacklog;
 	}
+		
+
 }

@@ -3,7 +3,7 @@ package edu.mum.mscrum.hrss.access;
 import java.util.List;
 
 import edu.mum.mscrum.hrss.model.Developer;
-import edu.mum.mscrum.model.ProductBacklog;
+import edu.mum.mscrum.model.Product;
 import edu.mum.mscrum.model.Release;
 import edu.mum.mscrum.hrss.model.*;
 import edu.mum.mscrum.model.UserStory;
@@ -35,7 +35,7 @@ public class HRssFacade implements IHRsystem{
 		return null;
 	}
 
-	public List<Developer> getDeveloperByProduct(ProductBacklog pr) {
+	public List<Developer> getDeveloperByProduct(Product pr) {
 		// TODO Auto-generated method stub
 		return null;
 	}
